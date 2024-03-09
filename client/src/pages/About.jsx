@@ -2,27 +2,29 @@ export default function About() {
   return (
     <div className="py-20 px-4 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold mb-4 text-slate-800">
-        About Sahand Estate
+        About CasaEstate
       </h1>
       <p className="mb-4 text-slate-700">
-        Sahand Estate is a leading real estate agency that specializes in
-        helping clients buy, sell, and rent properties in the most desirable
-        neighborhoods. Our team of experienced agents is dedicated to providing
-        exceptional service and making the buying and selling process as smooth
-        as possible.
+        CasaEstate stands as a premier real estate firm, focusing on aiding
+        customers in purchasing, selling, and renting properties in highly
+        sought-after neighborhoods. With a seasoned team of agents, we are
+        committed to delivering outstanding service and ensuring a seamless
+        experience throughout the buying and selling journey.
       </p>
       <p className="mb-4 text-slate-700">
-        Our mission is to help our clients achieve their real estate goals by
-        providing expert advice, personalized service, and a deep understanding
-        of the local market. Whether you are looking to buy, sell, or rent a
-        property, we are here to help you every step of the way.
+        Our goal is to assist clients in reaching their real estate objectives
+        through expert guidance, tailored assistance, and a comprehensive grasp
+        of the local market. Whether youre in the market to buy, sell, or rent a
+        property, were dedicated to supporting you at every stage of the
+        process.
       </p>
       <p className="mb-4 text-slate-700">
-        Our team of agents has a wealth of experience and knowledge in the real
-        estate industry, and we are committed to providing the highest level of
-        service to our clients. We believe that buying or selling a property
-        should be an exciting and rewarding experience, and we are dedicated to
-        making that a reality for each and every one of our clients.
+        With a vast reservoir of experience and expertise in the real estate
+        sector, our team of agents is devoted to delivering top-tier service to
+        our clients. We firmly believe that the process of buying or selling a
+        property should be a thrilling and fulfilling journey, and we are
+        wholeheartedly committed to transforming that belief into reality for
+        each of our clients.
       </p>
     </div>
   );
