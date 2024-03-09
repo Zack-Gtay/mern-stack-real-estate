@@ -36,7 +36,7 @@ export const Header = () => {
               About
             </li>
           </Link>
-          <Link to="/profile">
+          <Link to="/sign-in">
             {/* {currentUser ? (
               <img
                 className='rounded-full h-7 w-7 object-cover'
