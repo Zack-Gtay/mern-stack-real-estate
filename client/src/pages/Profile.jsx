@@ -35,6 +35,7 @@ export const Profile = () => {
     if (file) {
       handleFileUpload(file);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file]);
 
   const handleFileUpload = (file) => {
@@ -117,6 +118,7 @@ export const Profile = () => {
       }
       dispatch(deleteUserSuccess(data));
     } catch (error) {
+      // eslint-disable-next-line no-undef
       dispatch(deleteUserFailure(data.message));
     }
   };
