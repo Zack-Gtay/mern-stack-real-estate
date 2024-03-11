@@ -1,6 +1,7 @@
 import bcryptjs from "bcryptjs";
 import User from "../models/user.model.js";
 import { errorHandlerFunc } from "../utils/error.js";
+import Listing from '../models/listing.model.js';
 
 export const test = (req, res) => {
   res.json({
@@ -44,6 +45,32 @@ export const deleteUser = async (req, res, next) => {
     await User.findByIdAndDelete(req.params.id);
     res.clearCookie("access_token"); // clear the cookie after the deletion
     res.status(200).json("User has been deleted!");
+  } catch (error) {
+    next(error);
+  }
+};
+export const getUserListings = async (req, res, next) => {
+  if (req.user.id === req.params.id) {
+    try {
+      const listings = await Listing.find({ userRef: req.params.id });
+      res.status(200).json(listings);
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    return next(errorHandlerFunc(401, "You can only view your own listings!"));
+  }
+};
+
+export const getUser = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (!user) return next(errorHandlerFunc(404, "User not found!"));
+
+    const { password: pass, ...rest } = user._doc;
+
+    res.status(200).json(rest);
   } catch (error) {
     next(error);
   }
