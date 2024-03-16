@@ -101,7 +101,7 @@ export const getListings = async (req, res, next) => {
     const order = req.query.order || "desc";
 
     const listings = await Listing.find({
-      name: { $regex: searchTerm, $options: "i" },
+      name: { $regex: searchTerm, $options: "i" }, // not caring about lower and upper case "i"
       offer,
       furnished,
       parking,
