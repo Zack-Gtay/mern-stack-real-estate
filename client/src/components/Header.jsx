@@ -20,14 +20,14 @@ export const Header = () => {
     if (searchTermFromUrl) {
       setSearchTerm(searchTermFromUrl);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);
   return (
     <header className="bg-slate-300 shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-            <span className="text-slate-500">Casa</span>
+            <span className="text-slate-500">CasaLink</span>
             <span className="text-slate-700">Estate</span>
           </h1>
         </Link>

@@ -2,29 +2,30 @@ export default function About() {
   return (
     <div className="py-20 px-4 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold mb-4 text-slate-800">
-        About CasaEstate
+      CasaLinkEstate
       </h1>
       <p className="mb-4 text-slate-700">
-        CasaEstate stands as a premier real estate firm, focusing on aiding
-        customers in purchasing, selling, and renting properties in highly
-        sought-after neighborhoods. With a seasoned team of agents, we are
-        committed to delivering outstanding service and ensuring a seamless
-        experience throughout the buying and selling journey.
-      </p>
-      <p className="mb-4 text-slate-700">
-        Our goal is to assist clients in reaching their real estate objectives
-        through expert guidance, tailored assistance, and a comprehensive grasp
-        of the local market. Whether youre in the market to buy, sell, or rent a
-        property, were dedicated to supporting you at every stage of the
+      CasaLinkEstate stands as a leading firm in the real estate industry,
+        specializing in assisting clients with buying, selling, and renting
+        properties in prime locations. Backed by a proficient team of agents, we
+        are dedicated to providing exceptional service and ensuring a smooth and
+        rewarding experience throughout the entire real estate transaction
         process.
       </p>
       <p className="mb-4 text-slate-700">
-        With a vast reservoir of experience and expertise in the real estate
-        sector, our team of agents is devoted to delivering top-tier service to
-        our clients. We firmly believe that the process of buying or selling a
-        property should be a thrilling and fulfilling journey, and we are
-        wholeheartedly committed to transforming that belief into reality for
-        each of our clients.
+        Our primary aim is to help clients achieve their real estate goals by
+        offering expert guidance, personalized support, and a deep understanding
+        of the local market dynamics. Whether you are in the market to purchase,
+        sell, or rent a property, we are committed to standing by your side at
+        every step of the journey.
+      </p>
+      <p className="mb-4 text-slate-700">
+        With a wealth of experience and expertise in the real estate field, our
+        team of agents is fully devoted to delivering top-notch service to our
+        valued clients. We firmly believe that the process of buying or selling
+        a property should be an exciting and fulfilling adventure, and we are
+        dedicated to turning that belief into a reality for each and every one
+        of our clients.
       </p>
     </div>
   );

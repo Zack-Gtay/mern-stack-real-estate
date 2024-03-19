@@ -56,8 +56,9 @@ export const Home = () => {
           <br />
           living space effortlessly.
         </h1>
-        <div className="text-gray-400 lg:text-lg sm:text-sm ">
-          CasaEstate is the premier destination to locate your perfect home.
+        <div className="text-gray-600 lg:text-lg sm:text-sm ">
+          CasaLinkEstate is the premier destination to locate your perfect
+          home.
           <br />
           Choose from our wide range of properties to find the one that suits
           you best.
