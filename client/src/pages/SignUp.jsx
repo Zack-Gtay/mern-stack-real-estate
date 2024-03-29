@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import OAuth from '../components/OAuth';
+import OAuth from "../components/OAuth";
+import { motion } from "framer-motion";
 
 export const SignUp = () => {
   const [formInfo, setFormInfo] = useState({});
@@ -42,7 +43,16 @@ export const SignUp = () => {
     }
   };
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <motion.div
+      className="p-3 max-w-lg mx-auto"
+      variants={{
+        hidden: { opacity: 0, y: 75 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.5, delay: 0.25 }}
+    >
       <h1 className="text-3xl text-center font-semibold my-7">
         Create an account!
       </h1>
@@ -75,7 +85,7 @@ export const SignUp = () => {
         >
           {loading ? "Loading..." : "Create an account"}
         </button>
-         <OAuth/>
+        <OAuth />
       </form>
       <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
@@ -84,6 +94,6 @@ export const SignUp = () => {
         </Link>
       </div>
       {error && <p className="text-red-500 mt-5">{error}</p>}
-    </div>
+    </motion.div>
   );
 };

@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { useRef, useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
 import {
   getDownloadURL,
   getStorage,
@@ -158,7 +160,16 @@ export const Profile = () => {
     }
   };
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 75 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className="p-3 max-w-lg mx-auto"
+    >
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
@@ -285,6 +296,6 @@ export const Profile = () => {
           ))}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };

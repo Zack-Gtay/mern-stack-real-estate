@@ -8,6 +8,7 @@ import {
 import { app } from "../firebase";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function CreateListing() {
   const { currentUser } = useSelector((state) => state.user);
@@ -155,7 +156,16 @@ export default function CreateListing() {
     }
   };
   return (
-    <main className="p-3 max-w-4xl mx-auto">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 0 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className="p-3 max-w-4xl mx-auto"
+    >
       <h1 className="text-3xl font-semibold text-center my-7">
         Create a Listing
       </h1>
@@ -367,6 +377,6 @@ export default function CreateListing() {
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>
       </form>
-    </main>
+    </motion.div>
   );
 }

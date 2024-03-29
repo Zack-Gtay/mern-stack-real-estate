@@ -2,9 +2,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ListingItem from "../components/ListingItem";
+import { motion } from "framer-motion";
 
 export const Search = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [listings, setListings] = useState([]);
+  const [showMore, setShowMore] = useState(false);
   const [sidebardata, setSidebardata] = useState({
     searchTerm: "",
     type: "all",
@@ -14,10 +18,6 @@ export const Search = () => {
     sort: "created_at",
     order: "desc",
   });
-
-  const [loading, setLoading] = useState(false);
-  const [listings, setListings] = useState([]);
-  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -76,7 +76,7 @@ export const Search = () => {
       setSidebardata({ ...sidebardata, type: e.target.id });
     }
 
-    if (e.target.id === "searchTerm") {
+    if (e.target.id === "searchInput") {
       setSidebardata({ ...sidebardata, searchTerm: e.target.value });
     }
 
@@ -104,7 +104,11 @@ export const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams();
-    urlParams.set("searchTerm", sidebardata.searchTerm);
+    if (sidebardata.searchTerm) {
+      urlParams.set("searchTerm", sidebardata.searchTerm);
+    } else if (sidebardata.address) {
+      urlParams.set("address", sidebardata.address);
+    }
     urlParams.set("type", sidebardata.type);
     urlParams.set("parking", sidebardata.parking);
     urlParams.set("furnished", sidebardata.furnished);
@@ -130,7 +134,16 @@ export const Search = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 0 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className="flex flex-col md:flex-row"
+    >
       <div className="p-7  border-b-2 md:border-r-2 md:min-h-screen">
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">
           <div className="flex items-center gap-2">
@@ -139,7 +152,7 @@ export const Search = () => {
             </label>
             <input
               type="text"
-              id="searchTerm"
+              id="searchInput"
               placeholder="Search..."
               className="border rounded-lg p-3 w-full"
               value={sidebardata.searchTerm}
@@ -233,7 +246,7 @@ export const Search = () => {
       </div>
       <div className="flex-1">
         <h1 className="text-3xl font-semibold border-b p-3 text-slate-700 mt-5">
-          Listing results:
+          Results of property listings:
         </h1>
         <div className="p-7 flex flex-wrap gap-4">
           {!loading && listings.length === 0 && (
@@ -261,6 +274,6 @@ export const Search = () => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

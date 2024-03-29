@@ -1,11 +1,20 @@
+import { motion } from "framer-motion";
+
 export default function About() {
   return (
-    <div className="py-20 px-4 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4 text-slate-800">
-      CasaLinkEstate
-      </h1>
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 75 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className="py-20 px-4 max-w-6xl mx-auto"
+    >
+      <h1 className="text-3xl font-bold mb-4 text-slate-800">CasaLinkEstate</h1>
       <p className="mb-4 text-slate-700">
-      CasaLinkEstate stands as a leading firm in the real estate industry,
+        CasaLinkEstate stands as a leading firm in the real estate industry,
         specializing in assisting clients with buying, selling, and renting
         properties in prime locations. Backed by a proficient team of agents, we
         are dedicated to providing exceptional service and ensuring a smooth and
@@ -27,6 +36,6 @@ export default function About() {
         dedicated to turning that belief into a reality for each and every one
         of our clients.
       </p>
-    </div>
+    </motion.div>
   );
 }

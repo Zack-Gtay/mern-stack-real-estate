@@ -7,6 +7,7 @@ import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
+import { motion } from "framer-motion";
 
 export const Home = () => {
   const [offerListings, setOfferListings] = useState([]);
@@ -50,15 +51,23 @@ export const Home = () => {
 
   return (
     <div>
-      <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
-        <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 75 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        initial="hidden"
+        animate="visible"
+        transition={{ duration: 0.5, delay: 0.25 }}
+        className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto"
+      >
+        <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl text-lg">
           Discover your next <span className="text-slate-500">ideal</span>
           <br />
           living space effortlessly.
         </h1>
         <div className="text-gray-600 lg:text-lg sm:text-sm ">
-          CasaLinkEstate is the premier destination to locate your perfect
-          home.
+          CasaLinkEstate is the premier destination to locate your perfect home.
           <br />
           Choose from our wide range of properties to find the one that suits
           you best.
@@ -67,9 +76,9 @@ export const Home = () => {
           to={"/search"}
           className="lg:text-lg sm:text-sm text-blue-800 font-bold hover:underline"
         >
-          Lets get started...
+          Lets discover...
         </Link>
-      </div>
+      </motion.div>
 
       {/* swiper */}
       <Swiper navigation>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import {
   getDownloadURL,
@@ -8,6 +9,7 @@ import {
 import { app } from "../firebase";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const UpdateListing = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -49,7 +51,7 @@ export const UpdateListing = () => {
   }, []);
 
   const handleImageSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
       setImageUploadError(false);
@@ -171,7 +173,16 @@ export const UpdateListing = () => {
     }
   };
   return (
-    <main className="p-3 max-w-4xl mx-auto">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 0 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className="p-3 max-w-4xl mx-auto"
+    >
       <h1 className="text-3xl font-semibold text-center my-7">
         Update a Listing
       </h1>
@@ -382,6 +393,6 @@ export const UpdateListing = () => {
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>
       </form>
-    </main>
+    </motion.div>
   );
 };

@@ -23,12 +23,12 @@ export const Header = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);
   return (
-    <header className="bg-slate-300 shadow-md">
+    <header className="bg-slate-700 shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-            <span className="text-slate-500">CasaLink</span>
-            <span className="text-slate-700">Estate</span>
+            <span className="text-slate-300">CasaLink</span>
+            <span className="text-slate-300">Estate</span>
           </h1>
         </Link>
         <form
@@ -48,12 +48,12 @@ export const Header = () => {
         </form>
         <ul className="flex gap-4">
           <Link to="/">
-            <li className="hidden sm:inline text-slate-700 hover:underline">
+            <li className="hidden sm:inline text-slate-300 hover:underline">
               Home
             </li>
           </Link>
           <Link to="/about">
-            <li className="hidden sm:inline text-slate-700 hover:underline">
+            <li className="hidden sm:inline text-slate-300 hover:underline">
               About
             </li>
           </Link>
@@ -65,7 +65,7 @@ export const Header = () => {
                 alt="profile"
               />
             ) : (
-              <li className=" text-slate-700 hover:underline"> Sign in</li>
+              <li className=" text-slate-300 hover:underline"> Sign in</li>
             )}
           </Link>
         </ul>
